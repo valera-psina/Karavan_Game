@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/CaravanView.gd" id="1_caravan"]
+
+[node name="CaravanView" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 240)
+mouse_filter = 0
+script = ExtResource("1_caravan")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+mouse_filter = 2
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="HBoxContainer" parent="VBox"]
+custom_minimum_size = Vector2(0, 34)
+mouse_filter = 2
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.72, 0.88, 0.68, 1)
+theme_override_font_sizes/font_size = 13
+text = "КАРАВАН 1"
+
+[node name="Value" type="Label" parent="VBox/Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "0"
+
+[node name="Dir" type="Label" parent="VBox/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.86, 0.8, 1)
+theme_override_font_sizes/font_size = 17
+text = "·"
+
+[node name="Dot" type="ColorRect" parent="VBox/Header"]
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="Discard" type="Button" parent="VBox/Header"]
+custom_minimum_size = Vector2(24, 22)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+tooltip_text = "Сбросить караван"
+theme_override_colors/font_color = Color(0.85, 0.62, 0.55, 1)
+theme_override_colors/font_hover_color = Color(1, 0.75, 0.6, 1)
+theme_override_colors/font_disabled_color = Color(0.35, 0.45, 0.35, 1)
+theme_override_font_sizes/font_size = 14
+flat = true
+text = "×"
+
+[node name="Cards" type="Control" parent="VBox"]
+mouse_filter = 2
+clip_contents = true
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Hint" type="Label" parent="VBox/Cards"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.62, 0.76, 0.6, 0.55)
+theme_override_font_sizes/font_size = 13
+text = "ПУСТО"
+horizontal_alignment = 1
+vertical_alignment = 1

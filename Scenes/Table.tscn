@@ -1,0 +1,252 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/TableView.gd" id="1_table"]
+[ext_resource type="PackedScene" path="res://Scenes/CaravanView.tscn" id="2_caravan"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_felt"]
+bg_color = Color(0.0156863, 0.247059, 0.0352941, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.06, 0.3, 0.1, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[node name="Table" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_table")
+
+[node name="Root" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 14
+
+[node name="Felt" type="PanelContainer" parent="Root"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_felt")
+
+[node name="Inner" type="MarginContainer" parent="Root/Felt"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Root/Felt/Inner"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TopSec" type="VBoxContainer" parent="Root/Felt/Inner/VBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 4
+
+[node name="TopBar" type="HBoxContainer" parent="Root/Felt/Inner/VBox/TopSec"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="EnemyBox" type="VBoxContainer" parent="Root/Felt/Inner/VBox/TopSec/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="EnemyTitle" type="Label" parent="Root/Felt/Inner/VBox/TopSec/TopBar/EnemyBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.82, 0.66, 1)
+theme_override_font_sizes/font_size = 12
+text = "ДИЛЕР"
+
+[node name="EnemyHand" type="HBoxContainer" parent="Root/Felt/Inner/VBox/TopSec/TopBar/EnemyBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = -18
+
+[node name="SpacerA" type="Control" parent="Root/Felt/Inner/VBox/TopSec/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TurnLabel" type="Label" parent="Root/Felt/Inner/VBox/TopSec/TopBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.98, 0.84, 0.35, 1)
+theme_override_font_sizes/font_size = 19
+text = "КАРАВАН"
+vertical_alignment = 1
+
+[node name="SpacerB" type="Control" parent="Root/Felt/Inner/VBox/TopSec/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeckBox" type="VBoxContainer" parent="Root/Felt/Inner/VBox/TopSec/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="DeckArt" type="TextureRect" parent="Root/Felt/Inner/VBox/TopSec/TopBar/DeckBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(46, 68)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DeckLabel" type="Label" parent="Root/Felt/Inner/VBox/TopSec/TopBar/DeckBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.88, 0.72, 1)
+theme_override_font_sizes/font_size = 11
+text = "Колода"
+horizontal_alignment = 1
+
+[node name="DiscardBox" type="VBoxContainer" parent="Root/Felt/Inner/VBox/TopSec/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="DiscardLabel" type="Label" parent="Root/Felt/Inner/VBox/TopSec/TopBar/DiscardBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.88, 0.72, 1)
+theme_override_font_sizes/font_size = 15
+text = "0"
+horizontal_alignment = 1
+
+[node name="DiscardCaption" type="Label" parent="Root/Felt/Inner/VBox/TopSec/TopBar/DiscardBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.72, 0.56, 1)
+theme_override_font_sizes/font_size = 11
+text = "сброс"
+horizontal_alignment = 1
+
+[node name="Menu" type="Button" parent="Root/Felt/Inner/VBox/TopSec/TopBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(104, 42)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Меню"
+
+[node name="Center" type="VBoxContainer" parent="Root/Felt/Inner/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="EnemyRow" type="GridContainer" parent="Root/Felt/Inner/VBox/Center"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="Caravan1" parent="Root/Felt/Inner/VBox/Center/EnemyRow" instance=ExtResource("2_caravan")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Caravan2" parent="Root/Felt/Inner/VBox/Center/EnemyRow" instance=ExtResource("2_caravan")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Caravan3" parent="Root/Felt/Inner/VBox/Center/EnemyRow" instance=ExtResource("2_caravan")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Divider" type="ColorRect" parent="Root/Felt/Inner/VBox/Center"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.08, 0.3, 0.12, 1)
+
+[node name="PlayerRow" type="GridContainer" parent="Root/Felt/Inner/VBox/Center"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="Caravan1" parent="Root/Felt/Inner/VBox/Center/PlayerRow" instance=ExtResource("2_caravan")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Caravan2" parent="Root/Felt/Inner/VBox/Center/PlayerRow" instance=ExtResource("2_caravan")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Caravan3" parent="Root/Felt/Inner/VBox/Center/PlayerRow" instance=ExtResource("2_caravan")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BottomSec" type="VBoxContainer" parent="Root/Felt/Inner/VBox"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 6
+
+[node name="Status" type="Label" parent="Root/Felt/Inner/VBox/BottomSec"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.92, 0.76, 1)
+theme_override_font_sizes/font_size = 13
+text = ""
+horizontal_alignment = 1
+
+[node name="HandRow" type="HBoxContainer" parent="Root/Felt/Inner/VBox/BottomSec"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PlayerHand" type="GridContainer" parent="Root/Felt/Inner/VBox/BottomSec/HandRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = -22
+theme_override_constants/v_separation = 6
+columns = 8
+
+[node name="Buttons" type="HBoxContainer" parent="Root/Felt/Inner/VBox/BottomSec"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="BtnDraw" type="Button" parent="Root/Felt/Inner/VBox/BottomSec/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(156, 52)
+layout_mode = 2
+text = "Взять"
+
+[node name="BtnEnd" type="Button" parent="Root/Felt/Inner/VBox/BottomSec/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(156, 52)
+layout_mode = 2
+text = "Ход"
+
+[node name="BtnDiscard" type="Button" parent="Root/Felt/Inner/VBox/BottomSec/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(156, 52)
+layout_mode = 2
+text = "Сброс"
+
+[node name="Overlay" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

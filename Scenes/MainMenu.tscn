@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu.gd" id="1_menu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frame"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.04, 0.36, 0.08, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0156863, 0.247059, 0.0352941, 1)
+
+[node name="Frame" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Panel" type="PanelContainer" parent="Frame"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_frame")
+
+[node name="Center" type="CenterContainer" parent="Frame/Panel"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Frame/Panel/Center"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Title" type="Label" parent="Frame/Panel/Center/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 78
+text = "КАРАВАН"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Frame/Panel/Center/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "торговая карта · Fallout: New Vegas"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Frame/Panel/Center/VBox"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="Play" type="Button" parent="Frame/Panel/Center/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 56)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Играть"
+
+[node name="Difficulty" type="Button" parent="Frame/Panel/Center/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 56)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Сложность: Легко"
+
+[node name="Quit" type="Button" parent="Frame/Panel/Center/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 56)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Выход"
+
+[node name="Spacer2" type="Control" parent="Frame/Panel/Center/VBox"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="Footer" type="Label" parent="Frame/Panel/Center/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "прототип · Godot 4.7"
+horizontal_alignment = 1
